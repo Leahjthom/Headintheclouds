@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <link rel="stylesheet" href="./assets/index.css">
+
+    <script defer src="./assets/login.js"></script>
+
+</head>
+<body>
+    <div id="main-container">
+        <div id="box1">
+            <h1>Head in the clouds</h1>
+            <div id="container">
+              <h3 id="text"></h3>
+              <em id="play"></em>
+            </div>
+            <form id="login-form" action="diary.html">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter username...">
+                <br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter password...">
+                <br><br>
+                <button type="submit" class="block"><b>Login</b></button>
+            </form>
+            <div class="dropdown">
+                <button id="signup-btn" onclick="toggleDropdown()"></button>
+                <div class="dropdown-content" id="signup-dropdown">
+                    <a href="register.html">Create an account</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div id="box3">
+        <h3><u>Connect on social media!</u></h3>
+        <p> <span>Facebook</span> <br><br>
+    
+            
+            <span>Instagram</span> <br><br>
+            
+        
+            
+            <span>Twitter</span>  <br><br>
+            
+            <span></span>  <br><br>
+        </p>
+    </div>
+    <script>        
+        const form = document.getElementById("login-form");
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            
+            // Validate the user's input
+            if (username === "myusername" && password === "mypassword") {
+                // Redirect to the diary page
+                window.location.href = form.action;
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+        function toggleDropdown() {
+            const dropdown = document.getElementById("signup-dropdown");
+            dropdown.classList.toggle("show");
+        }
+        // this closes the dropdown if the user clicks outside of it
+        window.onclick = (event) => {
+            if (!event.target.matches(".dropdown button")) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (const dropdown of dropdowns) {
+                    if (dropdown.classList.contains("show")) {
+                        dropdown.classList.remove("show");
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
